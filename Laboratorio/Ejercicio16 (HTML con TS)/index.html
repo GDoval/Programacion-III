@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./typescript.js" ></script>
+</head>
+<body>
+    <form action="/my-handling-form-page" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="txtNombre" />
+        </div>
+        <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="txtMail" />
+        </div>
+        <div>
+            <label for="dni">DNI:</label>
+            <input type="dni" id="txtDni" />
+        </div>
+        <div>
+            <label for="CV">Curriculum Vitae:</label>
+            <textarea id="txtCv"></textarea>
+        </div>
+        
+        <div class="button">
+            <button type="submit" onclick="MostrarDatos()">Enviar datos</button>
+        </div>
+    </form>
+</body>
+</html>
