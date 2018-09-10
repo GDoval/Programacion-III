@@ -48,6 +48,20 @@ class Producto
 
         }
     }
+
+    public static function TraerTodos()
+    {
+        $archivo = fopen("productos.txt", "r");
+        rewind($archivo);
+        $resp = array();
+        while(!feof($archivo))
+        {
+            $array = explode("-", fgets($archivo));
+            $obj = new Producto($array[0], $array[1]);
+            $resp->array_push($obj);
+        }
+        return $resp;
+    }
 }
 
 ?>
