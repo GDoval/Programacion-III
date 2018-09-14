@@ -36,12 +36,12 @@ var Gente;
         Alumno.prototype.ToString = function () {
             return this._legajo + "-" + _super.prototype.ToString.call(this);
         };
-        Alumno.prototype.GuardarEnArchivo = function () {
+        Alumno.GuardarEnArchivo = function () {
             var guardar = this.toString();
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "EjercicioPersona/BackEnd/Gestor.php", true);
             xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xhttp.send("valor=valor");
+            xhttp.send("valor=" + guardar);
         };
         return Alumno;
     }(Gente.Persona));

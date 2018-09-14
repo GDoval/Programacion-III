@@ -25,7 +25,7 @@ namespace Gente
             return this._legajo +"-" + super.ToString();
         }
 
-        public  GuardarEnArchivo():void
+        public static  GuardarEnArchivo():void
         {
             var guardar = this.toString();
             let xhttp = new XMLHttpRequest();
