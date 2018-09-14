@@ -1,4 +1,4 @@
-/// <reference path="./Alumno.ts" />
+/// <reference path="Alumno.ts" />
 
-let persona = new Alumno("Gaston", "Doval", 123);
-
+let persona = new Gente.Alumno("Gaston", "Doval", 123);
+persona.GuardarEnArchivo();

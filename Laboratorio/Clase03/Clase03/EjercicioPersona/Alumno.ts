@@ -1,7 +1,6 @@
 /// <reference path="./Persona.ts" />
 namespace Gente
 {
-
     export class Alumno extends Persona
     {
         private _legajo : number;
@@ -26,11 +25,12 @@ namespace Gente
             return this._legajo +"-" + super.ToString();
         }
 
-        public static GuardarEnArchivo()
+        public  GuardarEnArchivo():void
         {
             var guardar = this.toString();
             let xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "./BackEnd/Gestor.php", true);
+            xhttp.open("POST", "EjercicioPersona/BackEnd/Gestor.php", true);
+            xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
             xhttp.send("valor="+guardar);
         }
 
