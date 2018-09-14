@@ -11,7 +11,11 @@ var Gente;
             var legajo = document.getElementById("txtLegajo").value;
             var Alum = new Gente.Alumno(nombre, apellido, parseInt(legajo));
             alert(Alum.ToString());
+            // voy mostrando uno abajo de otro los elementos que ingreso
             document.getElementById("DivId").innerHTML += Alum.ToString() + "<br>";
+            //guarda solo valores de string , la clave va a ser alumnos//
+            var aux = localStorage.getItem("alumnos");
+            localStorage.setItem("alumnos", Alum.ToString() + ";");
         };
         return Manejadora;
     }());

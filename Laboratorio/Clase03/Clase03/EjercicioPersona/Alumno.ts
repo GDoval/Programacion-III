@@ -26,6 +26,13 @@ namespace Gente
             return this._legajo +"-" + super.ToString();
         }
 
+        public static GuardarEnArchivo()
+        {
+            var guardar = this.toString();
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "./BackEnd/Gestor.php", true);
+            xhttp.send("valor="+guardar);
+        }
 
     }
 }
