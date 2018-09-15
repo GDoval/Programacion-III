@@ -1,4 +1,4 @@
-/// <reference path="persona.ts" />
+////* <reference path="./persona.ts" />
 
 namespace Gente {
     
