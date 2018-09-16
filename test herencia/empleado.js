@@ -13,24 +13,27 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Gente;
-(function (Gente) {
+var AhoraSi;
+(function (AhoraSi) {
     var Empleado = /** @class */ (function (_super) {
         __extends(Empleado, _super);
-        function Empleado(legajo, sueldo, nombre, apellido, dni, sexo) {
-            var _this = _super.call(this, nombre, apellido, dni, sexo) || this;
-            _this._legajo = legajo;
-            _this._sueldo = sueldo;
+        function Empleado(nombre, apellido, sueldo) {
+            var _this = _super.call(this, nombre, apellido) || this;
+            _this.sueldo = sueldo;
             return _this;
         }
-        Empleado.prototype.Hablar = function (idioma) {
-            return "El empleado habla: " + idioma;
+        Empleado.prototype.Hablar = function () {
+            console.log("FUNCIONEEEEEEEEEEEEEEEEE");
         };
-        Empleado.prototype.ToString = function () {
-            return _super.prototype.ToString.call(this) + "-" + this._legajo + "-" + this._sueldo;
-        };
+        Object.defineProperty(Empleado.prototype, "Sueldo", {
+            get: function () {
+                return this.sueldo;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return Empleado;
-    }(Gente.Persona));
-    Gente.Empleado = Empleado;
-})(Gente || (Gente = {}));
-//# sourceMappingURL=Empleado.js.map
+    }(AhoraSi.Persona));
+    AhoraSi.Empleado = Empleado;
+})(AhoraSi || (AhoraSi = {}));
+//# sourceMappingURL=empleado.js.map

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="estilos.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <form action="empleados.php" method="POST">
+    <h2>Alta de Empleados </h2>
+    <hr>
+        <p>
+            <label for="dni">DNI: </label>
+            <input id="dni" type="text" min=1000000 max=55000000>
+        </p>
+        <p>
+            <label for="Apellido">Apellido: </label>
+            <input id="Apellido" type="text">
+        </p>
+        <p>
+            <label for="Nombre">Nombre: </label>
+            <input id="Nombre" type="text">
+        </p>
+        <p>
+            <label for="sexo">Sexo:</label>
+            <select id="sexo">
+                <option>Mujer</option>
+                <option>Hombre</option>
+                <option>Indefinido</option>
+            </select>
+        </p>
+        <hr>
+        <br>
+        <h2>Datos Laborales</h2>
+        <p>
+            <label for="legajo">Legajo</label>
+            <input id="legajo" type="text" min=100 max=550>
+        </p>
+        <p>
+            <label for="Sueldo">Sueldo</label>
+            <input id="sueldo" type="number">
+        </p>
+        <p>
+            <label for="turno">Turno</label><br>
+            <p style="text-indent: 45px"><input id="mañana" type="checkbox" value="Mañana">Mañana </p><br>
+            <p style="text-indent: 45px"><input id="tarde" type="checkbox" value="Tarde">Tarde</p><br>
+            <p style="text-indent: 45px"><input id="noche" type="checkbox" value="Noche">Noche</p><br>
+        </p>
+    </form><hr>
+    <script src="funciones.js"></script>
+    <button type="button" class="botonazo" >Limpiar</button><br>
+    <button type="button" class="botonazo" onclick="AdministrarValidaciones()">Enviar</button>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.container {
+    width: 500px;
+    clear: right;
+  }
+  
+  .container input {
+    width: 100%;
+    clear: right;
+  }
+
+  .tab{
+    text-indent: 400px;
+    text-emphasis-color: #ffffff;
+  }
+
+  body {
+    background-image:  url("ayanami.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+ }
+
+  form  { display: inline;      }
+  p     { display: table-row;  }
+  label { display: table-cell; }
+  input { display: table-cell; }
+
+  label {
+    display: inline-flex;
+    width: 140px;
+    text-align: left;
+  }
+
+  .botonazo
+  {
+    margin-left: 270px;
+  }
