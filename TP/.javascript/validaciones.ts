@@ -116,26 +116,14 @@ function AdministrarValidaciones()
     }
 
     //Valida Sexo
-    let opciones :HTMLOptionsCollection;
-    let select: HTMLSelectElement = (<HTMLSelectElement> document.getElementById("sexo"))
-    opciones =select.options;
-    let sexo:string = opciones[opciones.selectedIndex].value;
-    let checked:number = opciones.selectedIndex;
-    switch(checked)
-    {
-        case 1:
-            validar = ValidarCombo(sexo, "Mujer");
-            break;
-        case 2:
-            validar = ValidarCombo(sexo, "Hombre");
-            break;
-        case 3:
-            validar = ValidarCombo(sexo, "Indefinido");
-            break;
-    }
+    let sexo: string = (<HTMLSelectElement> document.getElementById("sexo")).value;
+    
 
-    if(!validar)
-    {
-        alert("Le pifiaste al sexo");
-    }
+    //Valida turno
+
+    let turno:string = ObtenerTurnoSeleccionado();
+
+    //Validar rango Sueldo
+
+    let sueldo:number = ObtenerSueldoMaximo(turno);
 }

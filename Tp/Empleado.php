@@ -11,6 +11,8 @@
  *
  * @author gdoval
  */
+
+ include_once("Persona.php");
 class Empleado extends Persona{
     //put your code here
     

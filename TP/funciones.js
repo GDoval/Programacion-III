@@ -93,23 +93,8 @@ function AdministrarValidaciones() {
         alert("Los siguientes rangos fallaron: " + error_log);
     }
     //Valida Sexo
-    var opciones;
-    var select = document.getElementById("sexo");
-    opciones = select.options;
-    var sexo = opciones[opciones.selectedIndex].value;
-    var checked = opciones.selectedIndex;
-    switch (checked) {
-        case 1:
-            validar = ValidarCombo(sexo, "Mujer");
-            break;
-        case 2:
-            validar = ValidarCombo(sexo, "Hombre");
-            break;
-        case 3:
-            validar = ValidarCombo(sexo, "Indefinido");
-            break;
-    }
-    if (!validar) {
-        alert("Le pifiaste al sexo");
-    }
+    var sexo = document.getElementById("sexo").value;
+    //Valida turno
+    var turno = ObtenerTurnoSeleccionado();
+    alert(turno);
 }
