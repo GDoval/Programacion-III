@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HTML 5</title>
+    <title>Tests unitarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="estilos.css">
-    <script src="funciones.js"></script>
+    <link rel="stylesheet" href="estilos_test.css">
+    <script src="tests.js"></script>
 </head>
+
 <body>
     <form action="administracion.php" method="POST">
-    <h2>Alta de Empleados </h2>
-    <hr>
+        <h2>Alta de Empleados </h2>
+        <hr>
         <p>
             <label for="dni">DNI: </label>
             <input id="dni" type="text" min=1000000 max=55000000>
+            
         </p>
         <p>
             <label for="Apellido">Apellido: </label>
@@ -29,7 +31,7 @@
             <label for="sexo">Sexo:</label>
             <select id="sexo">
                 <option value="Mujer">Mujer</option>
-                <option value= "Hombre">Hombre</option>
+                <option value="Hombre">Hombre</option>
                 <option value="Indefinido">Indefinido</option>
             </select>
         </p>
@@ -42,7 +44,7 @@
         </p>
         <p>
             <label for="Sueldo">Sueldo</label>
-            <input id="sueldo" type="number">
+            <input id="sueldo" type="number" value="0">
         </p>
         <p>
             <label for="turno">Turno</label><br>
@@ -50,9 +52,18 @@
             <p style="text-indent: 45px"><input id="tarde" type="checkbox" value="Tarde">Tarde</p><br>
             <p style="text-indent: 45px"><input id="noche" type="checkbox" value="Noche">Noche</p><br>
         </p>
-    </form><hr>
-    <script src="funciones.js"></script>
-    <button type="button" class="botonazo" >Limpiar</button><br>
-    <button type="button" class="botonazo" onclick="todoOK()">Enviar</button>
+    </form>
+    <hr>
+    <script src="tests.js"></script>
+    <button type="button" class="botonazo" onclick="test_ValidarCamposVacios()">Probar campos vacios</button><br>
+    <button type="button" class="botonazo" onclick="test_ValidarRandoNumerico()">Probar numeros en rango</button><br>
+    <button type="button" class="botonazo" onclick="test_ObtenerTurnoSeleccionado()">Probar turnos</button><br>
+    <button type="button" class="botonazo" onclick="test_ObtenerSueldoMaximo()">Probar sueldo maximo</button><br>
+    <button type="button" class="botonazo" onclick="test_ValidarSueldoPorTurno()">Probar sueldo por turno</button><br>
+
+
+    <button type="button" class="botonazo" onclick="AdministrarValidaciones()">Enviar</button>
+
 </body>
+
 </html>
