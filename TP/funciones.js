@@ -10,6 +10,9 @@ function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
+            //Generamos un link a mostrar.php
+            document.getElementById("link_a_mostrar").href = 'mostrar.php';
+            document.getElementById("link_a_mostrar").hidden = false;
         }
     };
 }

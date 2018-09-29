@@ -15,6 +15,11 @@ function sendData(nombre:string, apellido:string, dni:number, sexo:string, legaj
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
+        //Generamos un link a mostrar.php
+        (<HTMLLinkElement>document.getElementById("link_a_mostrar")).href = 'mostrar.php';
+        (<HTMLLinkElement>document.getElementById("link_a_mostrar")).hidden = false;
         }
-    }    
+    }
+    
+
 }
