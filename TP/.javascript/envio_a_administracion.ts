@@ -7,15 +7,14 @@ function sendData(nombre:string, apellido:string, dni:number, sexo:string, legaj
 
 
     //Se envian los valores
-    //xhttp.send("nombre="+nombre+"apellido"+apellido+"dni="+dni+"sexo="+sexo+"legajo="+legajo+"sueldo="+sueldo+"turno="+turno);
-
-    xhttp.send("sueldo="+sueldo+"Apellido="+apellido);
+    let data:string = 'nombre=' + nombre +'&apellido=' + apellido + '&turno=' + turno + '&dni=' + dni + '&sueldo=' + sueldo + '&sexo=' + sexo + '&legajo=' + legajo;
+    xhttp.send(data);
 
     //Se chequea que todo haya llegado bien
 
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            alert(xhttp.responseText);
+            console.log(xhttp.responseText);
         }
     }    
 }

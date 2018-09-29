@@ -4,12 +4,12 @@ function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
     xhttp.open("POST", "./administracion.php", true);
     xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     //Se envian los valores
-    //xhttp.send("nombre="+nombre+"apellido"+apellido+"dni="+dni+"sexo="+sexo+"legajo="+legajo+"sueldo="+sueldo+"turno="+turno);
-    xhttp.send("sueldo=" + sueldo + "Apellido=" + apellido);
+    var data = 'nombre=' + nombre + '&apellido=' + apellido + '&turno=' + turno + '&dni=' + dni + '&sueldo=' + sueldo + '&sexo=' + sexo + '&legajo=' + legajo;
+    xhttp.send(data);
     //Se chequea que todo haya llegado bien
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            alert(xhttp.responseText);
+            console.log(xhttp.responseText);
         }
     };
 }

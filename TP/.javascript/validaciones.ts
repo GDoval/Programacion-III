@@ -152,7 +152,7 @@ function AdministrarValidaciones(): boolean {
     //Validar rango Sueldo
 
     let sueldo: number = parseInt((<HTMLSelectElement>document.getElementById("sueldo")).value);
-    validarTodo = ValidarSueldoPorTurno(turno, sueldo);
+    validarTodo = ValidarSueldoPorTurno(turno, sueldo);turno
     if (validarTodo == true) {
         contValidaciones++;
     }
@@ -167,25 +167,15 @@ function todoOK() {
     let valido: boolean = false;
     valido = AdministrarValidaciones();
 
-    var nombre: string = "aaaa";
-    var Apellido: string = "bbbb";
-    var dni: number = 21;
-    var sexo: string = "m";
-    var legajo: string = "123";
-    var sueldo: number = 1245;
-    var turno: string = "tarde";
-
-    alert(nombre + Apellido + " " + dni + "  " + sexo + " " + legajo + " " + sueldo + " " + turno);
-    
-    //let nombre: string = (<HTMLInputElement>document.getElementById("Nombre")).value;
-    //let apellido: string = (<HTMLInputElement>document.getElementById("Apellido")).value;
-    /*let dni: number = parseInt((<HTMLInputElement>document.getElementById("dni")).value);
+    let nombre: string = (<HTMLInputElement>document.getElementById("Nombre")).value;
+    let apellido: string = (<HTMLInputElement>document.getElementById("Apellido")).value;
+    let dni: number = parseInt((<HTMLInputElement>document.getElementById("dni")).value);
     let sexo: string = (<HTMLInputElement>document.getElementById("sexo")).value;
     let legajo: string = (<HTMLInputElement>document.getElementById("legajo")).value;
     let sueldo: number = parseInt((<HTMLInputElement>document.getElementById("sueldo")).value);
-    let turno: string = (<HTMLInputElement>document.getElementById("turno")).value;*/
+    let turno: string = ObtenerTurnoSeleccionado();
+
     if (valido == true) {
-        alert("AAAAAAAAAAAA");
-        sendData(nombre, Apellido, dni, sexo, legajo, sueldo, turno);
+        sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno);
     }
 }

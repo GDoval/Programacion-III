@@ -139,6 +139,7 @@ function AdministrarValidaciones() {
     //Validar rango Sueldo
     var sueldo = parseInt(document.getElementById("sueldo").value);
     validarTodo = ValidarSueldoPorTurno(turno, sueldo);
+    turno;
     if (validarTodo == true) {
         contValidaciones++;
     }
@@ -152,23 +153,14 @@ function AdministrarValidaciones() {
 function todoOK() {
     var valido = false;
     valido = AdministrarValidaciones();
-    var nombre = "aaaa";
-    var Apellido = "bbbb";
-    var dni = 21;
-    var sexo = "m";
-    var legajo = "123";
-    var sueldo = 1245;
-    var turno = "tarde";
-    alert(nombre + Apellido + " " + dni + "  " + sexo + " " + legajo + " " + sueldo + " " + turno);
-    //let nombre: string = (<HTMLInputElement>document.getElementById("Nombre")).value;
-    //let apellido: string = (<HTMLInputElement>document.getElementById("Apellido")).value;
-    /*let dni: number = parseInt((<HTMLInputElement>document.getElementById("dni")).value);
-    let sexo: string = (<HTMLInputElement>document.getElementById("sexo")).value;
-    let legajo: string = (<HTMLInputElement>document.getElementById("legajo")).value;
-    let sueldo: number = parseInt((<HTMLInputElement>document.getElementById("sueldo")).value);
-    let turno: string = (<HTMLInputElement>document.getElementById("turno")).value;*/
+    var nombre = document.getElementById("Nombre").value;
+    var apellido = document.getElementById("Apellido").value;
+    var dni = parseInt(document.getElementById("dni").value);
+    var sexo = document.getElementById("sexo").value;
+    var legajo = document.getElementById("legajo").value;
+    var sueldo = parseInt(document.getElementById("sueldo").value);
+    var turno = ObtenerTurnoSeleccionado();
     if (valido == true) {
-        alert("AAAAAAAAAAAA");
-        sendData(nombre, Apellido, dni, sexo, legajo, sueldo, turno);
+        sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno);
     }
 }

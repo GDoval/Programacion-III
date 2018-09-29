@@ -1,0 +1,2 @@
+Nombre: Felur - Apellido: Galetto - DNI: 33712616 - Sexo: Mujer- Sueldo: 16000 - Legajo: 124 - Turno: Mañana
+Nombre: Gaston - Apellido: Doval - DNI: 33888999 - Sexo: Hombre- Sueldo: 18000 - Legajo: 123 - Turno: Tarde
