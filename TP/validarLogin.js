@@ -1,4 +1,23 @@
-"use strict";
+function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
+    //Se crea la consulta para enviar al script administracion.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "./administracion.php", true);
+    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    //Se envian los valores
+    var data = 'nombre=' + nombre + '&apellido=' + apellido + '&turno=' + turno + '&dni=' + dni + '&sueldo=' + sueldo + '&sexo=' + sexo + '&legajo=' + legajo;
+    xhttp.send(data);
+    //Se chequea que todo haya llegado bien
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            //Generamos un link a mostrar.php
+            if (xhttp.responseText == "OK!") {
+                document.getElementById("link_a_mostrar").href = 'mostrar.php';
+                document.getElementById("link_a_mostrar").hidden = false;
+            }
+        }
+    };
+}
 /// <reference path="envio_a_administracion.ts" />
 function ValidarCamposVacios() {
     var array_ids = ["Apellido", "Nombre", "dni", "sexo", "legajo", "sueldo"];
@@ -165,4 +184,51 @@ function todoOK() {
         sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno);
     }
 }
-//# sourceMappingURL=validaciones.js.map
+/// <reference path="validaciones.ts" />
+function ValidarVacios() {
+    var array_ids = ["apellido", "dni"];
+    var array_errores = [];
+    for (var _i = 0, array_ids_4 = array_ids; _i < array_ids_4.length; _i++) {
+        var id = array_ids_4[_i];
+        var validar = String(document.getElementById(id).value);
+        if (validar == "") {
+            array_errores.push(id);
+        }
+    }
+    return array_errores;
+}
+function VerificarValidacionesLogin() {
+    var array_vacios = ValidarVacios();
+    var validar_vacios = false;
+    var flag = 0;
+    var validar_rango = ValidarRangoNumerico(parseInt(document.getElementById("dni").value), 55000000, 1000000);
+    if (array_vacios.length == 0) {
+        validar_vacios = true;
+    }
+    else {
+        for (var _i = 0, array_vacios_1 = array_vacios; _i < array_vacios_1.length; _i++) {
+            var id = array_vacios_1[_i];
+            AdministrarSpanError(id, false);
+            flag++;
+        }
+    }
+    if (validar_vacios && validar_rango && flag == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function AdministrarSpanError(id, validar) {
+    var elemento = document.getElementById(id);
+    if (!validar) {
+        if (elemento != null) {
+            elemento.style.borderColor = "red";
+        }
+    }
+    else {
+        if (elemento != null) {
+            elemento.style.borderColor = "white";
+        }
+    }
+}

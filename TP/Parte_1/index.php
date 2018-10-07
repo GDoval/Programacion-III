@@ -11,17 +11,20 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        error_reporting(E_ALL);
+        ini_set("display_errors", "On");
         // put your code here
         require_once 'Persona.php';
         require_once 'Empleado.php';
         require_once 'Fabrica.php';
-        $tipito = new Empleado("Gaston", "Doval", 33712616, 'M', 1234, 99999, "12/09/2018");
+        $tipito = new Empleado("Illich", "Petrovianiand", 335512616, 'M', 1234, 99999, "Tarde");
         $idioma = array("Arabe", "Latin", "Frances");
         $fabri = new Fabrica(4545454);
         $fabri->AgregarEmpleado($tipito);
+        $fabri->TraerDeArchivo("../archivos/empleados.txt");
         $fabri->ToString();
-        $chabon = $fabri->_empleados[0]->Hablar($idioma);
-        echo $chabon;
+        $fabri->GuardarEnAarchivo("../archivos/empleados2.txt")
+        //$chabon = $fabri->_empleados[0]->Hablar($idioma);
         
         ?>
     </body>

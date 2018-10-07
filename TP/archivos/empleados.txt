@@ -1,9 +1,1 @@
-Nombre: Felur - Apellido: Galetto - DNI: 33712616 - Sexo: Mujer- Sueldo: 16000 - Legajo: 124 - Turno: Mañana
-Nombre: Gaston - Apellido: Doval - DNI: 33888999 - Sexo: Hombre- Sueldo: 18000 - Legajo: 123 - Turno: Tarde
-Nombre: Tersegovia - Apellido: Moriash - DNI: 33654987 - Sexo: Mujer- Sueldo: 20000 - Legajo: 100 - Turno: Noche
-Nombre: Zelda - Apellido: Link - DNI: 44987654 - Sexo: Indefinido- Sueldo: 15000 - Legajo: 120 - Turno: Tarde
-Nombre: Brave Fencer - Apellido: Musashi - DNI: 30452145 - Sexo: Hombre- Sueldo: 18000 - Legajo: 154 - Turno: Noche
-Nombre: Angula - Apellido: Morgula - DNI: 40546777 - Sexo: Mujer- Sueldo: 16000 - Legajo: 151 - Turno: Tarde
-Nombre: Leroya - Apellido: Leroy - DNI: 45111222 - Sexo: Indefinido- Sueldo: 15000 - Legajo: 147 - Turno: Mañana
-Nombre: Breeky - Apellido: Cheeky - DNI: 32154698 - Sexo: Mujer- Sueldo: 20000 - Legajo: 100 - Turno: Noche
-Nombre: Pandora - Apellido: Dora - DNI: 40000000 - Sexo: Hombre- Sueldo: 20000 - Legajo: 187 - Turno: Noche
+Christina-Makise-33712616-Mujer-124-12000-Noche-./fotos/33712616_Makise.jpg

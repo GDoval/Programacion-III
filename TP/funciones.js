@@ -2,39 +2,39 @@ function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
     //Se crea la consulta para enviar al script administracion.php
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "./administracion.php", true);
-    xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    //xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    xhttp.setRequestHeader("enctype", "multipart/form-data");
     //Se envian los valores
-    var data = 'nombre=' + nombre + '&apellido=' + apellido + '&turno=' + turno + '&dni=' + dni + '&sueldo=' + sueldo + '&sexo=' + sexo + '&legajo=' + legajo;
+    var foto = document.getElementById("foto");
+    var data = new FormData();
+    data.append("nombre", nombre);
+    data.append("apellido", apellido);
+    data.append("turno", turno);
+    data.append("dni", String(dni));
+    data.append("sexo", sexo);
+    data.append("legajo", legajo);
+    data.append("sueldo", String(sueldo));
+    data.append("foto", foto.files[0]);
     xhttp.send(data);
     //Se chequea que todo haya llegado bien
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
             //Generamos un link a mostrar.php
-            document.getElementById("link_a_mostrar").href = 'mostrar.php';
-            document.getElementById("link_a_mostrar").hidden = false;
+            if (xhttp.responseText == "OK!") {
+                document.getElementById("link_a_mostrar").href = 'mostrar.php';
+                document.getElementById("link_a_mostrar").hidden = false;
+            }
         }
     };
 }
 /// <reference path="envio_a_administracion.ts" />
-function ValidarCamposVacios() {
-    var array_ids = ["Apellido", "Nombre", "dni", "sexo", "legajo", "sueldo"];
-    var error_log = "";
-    var flag = 0;
-    for (var _i = 0, array_ids_1 = array_ids; _i < array_ids_1.length; _i++) {
-        var id = array_ids_1[_i];
-        var validar = document.getElementById(id).value;
-        if (validar == "") {
-            error_log += id + ",";
-            flag = 1;
-        }
-    }
-    if (flag) {
-        alert("Los siguientes campos se encuentran vacios: " + error_log);
-        return false;
+function ValidarCamposVacios(cadena) {
+    if (cadena == '') {
+        return true;
     }
     else {
-        return true;
+        return false;
     }
 }
 function ValidarRangoNumerico(validar, max, min) {
@@ -57,8 +57,8 @@ function ObtenerTurnoSeleccionado() {
     var array_ids = ["mañana", "tarde", "noche"];
     var flag = 0;
     var valor = "";
-    for (var _i = 0, array_ids_2 = array_ids; _i < array_ids_2.length; _i++) {
-        var id = array_ids_2[_i];
+    for (var _i = 0, array_ids_1 = array_ids; _i < array_ids_1.length; _i++) {
+        var id = array_ids_1[_i];
         var validar = document.getElementById(id).checked;
         if (validar) {
             flag += 1;
@@ -124,21 +124,18 @@ function AdministrarValidaciones() {
     var flag = 0;
     //#endregion
     //#region Valida el rango de los campos numericos 
-    for (var _i = 0, array_ids_3 = array_ids; _i < array_ids_3.length; _i++) {
-        var id = array_ids_3[_i];
+    for (var _i = 0, array_ids_2 = array_ids; _i < array_ids_2.length; _i++) {
+        var id = array_ids_2[_i];
         valor = document.getElementById(id).value;
         numero = parseInt(valor);
         validarTodo = ValidarRangoNumerico(numero, array_max[indice], array_min[indice]);
         indice++;
         if (!validarTodo) {
-            error_log += id + ",";
+            document.getElementById("spn" + id).hidden = false;
             flag = 1;
         }
     }
-    if (flag == 1) {
-        alert("Los siguientes rangos fallaron: " + error_log);
-    }
-    else {
+    if (flag != 1) {
         contValidaciones++;
     }
     //#endregion
@@ -150,10 +147,22 @@ function AdministrarValidaciones() {
         contValidaciones++;
     }
     //#endregion
-    validarTodo = ValidarCamposVacios();
-    if (validarTodo == true) {
+    //#region Valida campos vacios
+    var array_ids_todos = ["Apellido", "Nombre", "dni", "sexo", "legajo", "sueldo"];
+    var array_errores = [];
+    var hay_vacios = false;
+    for (var _a = 0, array_ids_todos_1 = array_ids_todos; _a < array_ids_todos_1.length; _a++) {
+        var id = array_ids_todos_1[_a];
+        var validar_1 = ValidarCamposVacios(String(document.getElementById(id).value));
+        if (validar_1) {
+            document.getElementById("spn" + id).hidden = false;
+            hay_vacios = true;
+        }
+    }
+    if (!hay_vacios) {
         contValidaciones++;
     }
+    //#endregion
     //Validar rango Sueldo
     var sueldo = parseInt(document.getElementById("sueldo").value);
     validarTodo = ValidarSueldoPorTurno(turno, sueldo);
@@ -181,4 +190,10 @@ function todoOK() {
     if (valido == true) {
         sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno);
     }
+}
+function AdministrarModificar(dni) {
+    var form = document.getElementById("Modificar");
+    var input = document.getElementById("modificar");
+    input.value = dni.toString();
+    form.submit();
 }

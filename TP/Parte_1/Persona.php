@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -50,7 +51,7 @@ abstract class Persona
     
     public function ToString()
     {
-        $resp = "Nombre: " . $this->_nombre . " - " . "Apellido: " . $this->_apellido . " - " . "DNI: " . $this->_dni  . " - " . "Sexo: " . $this->_sexo;
+        $resp = $this->_nombre . "-" .$this->_apellido . "-" . $this->_dni  . "-". $this->_sexo;
         return $resp;
     }
     

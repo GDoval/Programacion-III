@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Log-In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="estilos.css" />
+    <script src="validarLogin.js"></script>
+</head>
+<body>
+    <form action="verificarUsuario.php" method="POST" onsubmit="return VerificarValidacionesLogin()">
+    <div align="left">
+        <h1>Login</h1>
+    </div>
+
+    <div align="center">
+        <h2>Complete con sus Datos</h2>
+        <hr>
+        <p>
+            <label>DNI:</label>
+            <input id="dni" type="number" name="dni" min=1000000 max=55000000>
+        </p>
+        <p>
+            <label>Apellido:</label>
+            <input id="apellido" name="apellido" type="text">
+        </p>
+        <hr>
+        <div>
+            <input class="botonazo" type="submit" value="Enviar" ></button><br>
+            <button class="botonazo" type="button">Limpiar</button>  
+        </div>
+    </div>
+</form>
+</body>
+</html>

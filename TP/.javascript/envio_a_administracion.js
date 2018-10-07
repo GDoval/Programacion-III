@@ -1,3 +1,4 @@
+"use strict";
 function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
     //Se crea la consulta para enviar al script administracion.php
     var xhttp = new XMLHttpRequest();
@@ -11,8 +12,11 @@ function sendData(nombre, apellido, dni, sexo, legajo, sueldo, turno) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log(xhttp.responseText);
             //Generamos un link a mostrar.php
-            document.getElementById("link_a_mostrar").href = 'mostrar.php';
-            document.getElementById("link_a_mostrar").hidden = false;
+            if (xhttp.responseText == "OK!") {
+                document.getElementById("link_a_mostrar").href = 'mostrar.php';
+                document.getElementById("link_a_mostrar").hidden = false;
+            }
         }
     };
 }
+//# sourceMappingURL=envio_a_administracion.js.map

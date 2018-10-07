@@ -1,22 +1,14 @@
 /// <reference path="envio_a_administracion.ts" />
 
 
-function ValidarCamposVacios(): boolean {
-    let array_ids: string[] = ["Apellido", "Nombre", "dni", "sexo", "legajo", "sueldo"]
-    let error_log: string = "";
-    let flag: number = 0;
-    for (let id of array_ids) {
-        let validar: string = (<HTMLInputElement>document.getElementById(id)).value;
-        if (validar == "") {
-            error_log += id + ",";
-            flag = 1;
-        }
-    }
-    if (flag) {
-        alert("Los siguientes campos se encuentran vacios: " + error_log);
+function ValidarCamposVacios(cadena:string): boolean
+{
+    if(cadena == '')
+    {
+        return true
+    }else
+    {
         return false;
-    } else {
-        return true;
     }
 }
 
@@ -123,13 +115,11 @@ function AdministrarValidaciones(): boolean {
         validarTodo = ValidarRangoNumerico(numero, array_max[indice], array_min[indice]);
         indice++;
         if (!validarTodo) {
-            error_log += id + ",";
+            (<HTMLSpanElement>document.getElementById("spn" + id)).hidden = false;
             flag = 1;
         }
     }
-    if (flag == 1) {
-        alert("Los siguientes rangos fallaron: " + error_log);
-    } else {
+    if (flag != 1) {
         contValidaciones++;
     }
     //#endregion
@@ -144,11 +134,28 @@ function AdministrarValidaciones(): boolean {
         contValidaciones++;
     }
     //#endregion
+//#region Valida campos vacios
 
-    validarTodo = ValidarCamposVacios();
-    if (validarTodo == true) {
-        contValidaciones++;
+let array_ids_todos: string[] = ["Apellido", "Nombre", "dni", "sexo", "legajo", "sueldo"];
+let array_errores: string[] = [];
+let hay_vacios:boolean = false;
+for (let id of array_ids_todos) 
+{
+    let validar: boolean = ValidarCamposVacios(String((<HTMLInputElement>document.getElementById(id)).value));
+    if (validar) 
+    {
+        (<HTMLSpanElement>document.getElementById("spn" + id)).hidden = false;
+        hay_vacios = true;
     }
+}
+if(!hay_vacios)
+{
+    contValidaciones++;
+}
+
+
+//#endregion
+
     //Validar rango Sueldo
 
     let sueldo: number = parseInt((<HTMLSelectElement>document.getElementById("sueldo")).value);
