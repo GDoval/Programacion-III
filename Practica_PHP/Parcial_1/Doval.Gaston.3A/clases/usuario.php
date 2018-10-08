@@ -11,6 +11,10 @@ class Usuario
         $this->_email = $email;
     }
 
+    public function getMail()
+    {
+        return $this->_email;
+    }
 
     public function toJSON()
     {
@@ -26,7 +30,7 @@ class Usuario
         $archivo = fopen(".\archivos\usuarios.json", "a+");
         $guardar_json = $this->toJSON();
         $obj = new stdClass();
-        if(!fwrite($archivo, $guardar_json))
+        if(!fwrite($archivo, $guardar_json . "\n"))
         {
             $obj->exito = false;
             $obj->mensaje = "Guardado fallo";
@@ -48,8 +52,11 @@ class Usuario
         while(!feof($archivo))
         {
             $linea = fgets($archivo);
-            echo $json->clave;
+            $json = json_decode($linea, true);
+            $obj = new Usuario($json['email'], $json['clave']);
+            $usuarios[] = $obj;
         }
+        fclose($archivo);
         return $usuarios;
     }
 
@@ -66,15 +73,29 @@ class Usuario
 
     public static function verificarExistencia($usuario)
     {
-
+        $usuarios = $usuario->traerTodos();
+        $obj = new stdClass();
+        foreach($usuarios as $value)
+        {
+            if($value->getMail() == $usuario->getMail())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    
 
 }
 
-$usu = new Usuario($_POST['email'], $_POST['clave']);
+/*$usu = new Usuario($_POST['email'], $_POST['clave']);
 $user = new Usuario("asdasdas", "12345");
-$usu->traerTodos();
-
+$noestoy = new Usuario("oooooooooooo", "999");
+if($user->verificarExistencia($noestoy))
+{
+    echo "Esta";
+}else
+{
+    echo "No esta";
+}*/
 ?>
