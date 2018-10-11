@@ -1,0 +1,1 @@
+[{"nombre":"Tushonka","precio":123,"codigo":"123"},{"nombre":"Salewa","precio":222,"codigo":"222"},{"nombre":"IFAK","precio":666,"codigo":"666"}]
