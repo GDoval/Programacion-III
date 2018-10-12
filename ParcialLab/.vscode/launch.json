@@ -8,7 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/averga.js",
+            "program": "${workspaceFolder}/main.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/ciudadano.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
