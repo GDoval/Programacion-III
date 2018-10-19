@@ -1,0 +1,63 @@
+span
+{
+    color: blueviolet;
+    font-size: 120%;
+    font-family: fantasy;
+}
+
+input
+{
+    background-color: black;
+    color: white;
+    font-size: 50px;
+}
+
+input[type="button"]
+{
+    background-color: midnightblue;
+    color: goldenrod;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    float: right;
+}
+
+form
+{
+    width: 45%;
+}
+
+.exito
+{
+    color:green;
+}
+
+.error
+{
+    color:red;
+}
+
+.default
+{
+    background-color: white;
+}
+
+.oscuro
+{
+    background-color: black;
+}
+
+.morado
+{
+    background-color: red;
+}
+
+.colorado
+{
+    background-color: purple;
+}
+
+table
+{
+    margin-left: 10px;
+    margin-top: 55px;
+}
