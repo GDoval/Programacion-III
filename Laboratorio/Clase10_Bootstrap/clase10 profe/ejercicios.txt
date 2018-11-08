@@ -1,0 +1,31 @@
+1.- grillas
+    - Generar una página que contenga tres columnas de igual anchura que comience en tamaño de tableta y 
+    escale a tamaño de escritorio grande. 
+    En los teléfonos móviles, las columnas se apilarán automáticamente.
+
+    - Diseñar una página que permita obtener tres columnas de varios anchos que comience en tamaño de tableta 
+    y escale a tamaño de escritorio grande.
+
+    - Armar una página que posea dos columnas de anchos distintos, que comience en tamaño de tableta y 
+    que escale a tamaño de escritorio, con otras dos columnas (de anchos iguales) dentro de la columna más 
+    grande (en los teléfonos móviles, estas columnas y sus columnas anidadas se apilarán)
+
+2.- botones
+
+3.- imagenes
+
+4.- iconos
+
+5.- carousel
+
+6.- barras de progreso
+
+7.- alertas
+
+8.- tablas
+
+9.- formularios
+
+10.- ventanas modales
+
+

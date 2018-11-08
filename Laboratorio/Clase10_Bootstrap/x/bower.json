@@ -1,0 +1,17 @@
+{
+  "name": "Projeto1",
+  "description": "es un projecto del 26-10",
+  "main": "index.html",
+  "keywords": [
+    "123"
+  ],
+  "authors": [
+    "Cristian"
+  ],
+  "license": "123456",
+  "homepage": "www.holakease.com",
+  "dependencies":{
+				   "jquery":"latest",
+				   "bootstrap":"3.3.7"
+				 }
+}
